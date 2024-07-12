@@ -3,12 +3,20 @@ import java.util.Scanner;
 
 class CelsiusofFahrenheit {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        System.out.println("Enter Temperature in celsius:");
-        float celsius = s.nextFloat();
+        System.out.println("Enter Temperature in Celsius:");
 
-        float fahrenheit = ((celsius * 9 / 5) + 32);
-        System.out.println("Temperature in Fahrenheit:" + fahrenheit);
+        try {
+            double c = s.nextDouble();
+            double f = convert(c);
+            System.out.printf("Temperature in Fahrenheit: %.2f", f);
+        } catch (Exception k) {
+            System.out.println("Invalid input. enter temperature in Celsius");
+        }
+    }
+
+    public static double convert(double c) {
+        return (c * 9 / 5) + 32;
     }
 }
